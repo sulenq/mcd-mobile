@@ -11,7 +11,8 @@ import './style.css';
 import { myTheme } from './Theme/myTheme';
 import LandingPage from './Routes/LandingPage';
 import Verification from './Routes/Verification';
-import McdMobile from './Routes/McdMobile.jsx';
+import Deals from './Routes/Deals.jsx';
+import McDelivery from './Routes/McDelivery.jsx';
 
 const NotFound = () => {
   return (
@@ -46,7 +47,8 @@ function App() {
         <Routes>
           <Route path={'/'} element={<LandingPage />} />
           <Route path={'/verification'} element={<Verification />} />
-          <Route path={'/mcd-mobile'} element={<McdMobile />} />
+          <Route path={'/deals'} element={<Deals />} />
+          <Route path={'/mcdelivery'} element={<McDelivery />} />
           <Route path={'*'} element={<NotFound />} />
         </Routes>
       </ChakraProvider>

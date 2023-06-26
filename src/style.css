@@ -1,11 +1,15 @@
 * {
   box-sizing: border-box !important;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif !important;
   /* border: 1px solid gray !important; */
+}
+.tw {
+  font-family: 'Titillium Web', sans-serif !important;
 }
 
 :root {
   --gray: #aaaaaa;
+  --gl: #aaaaaa53;
   --yellow-hover: #f1cb5f;
   --yellow: #ffc836;
   --yellow-active: #e2b12b;
@@ -15,10 +19,11 @@
 }
 
 #appContainer {
-  max-width: 720px;
+  max-width: 1024px;
   height: 100vh;
   justify-content: center;
   margin: 0 auto;
+  overflow: auto;
 }
 
 .input {
@@ -58,4 +63,24 @@
 }
 .redBtn:active {
   background: var(--red-active);
+}
+
+.nav {
+  width: 100%;
+  height: 70px;
+  justify-content: center;
+  gap: 0 !important;
+  background: white;
+  z-index: 99;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0 32px;
+  box-shadow: 0 0 5px var(--gl);
+}
+.selectedNav {
+  color: var(--red);
+}
+.bs {
+  box-shadow: 0 0 5px var(--gl);
 }

@@ -50,10 +50,10 @@ export default function LandingPage() {
         borderRadius={'10px'}
         bg={'white'}
       >
-        <Heading fontSize={'24px'} lineHeight={'24px'}>
+        <Heading className={'tw'} fontSize={'24px'} lineHeight={'24px'}>
           WELCOME TO
         </Heading>
-        <Heading fontSize={'36px'} lineHeight={'36px'}>
+        <Heading className={'tw'} fontSize={'36px'} lineHeight={'36px'}>
           MCDONNALD'S
         </Heading>
         <Text opacity={0.5} mb={'32px'}>
@@ -87,8 +87,10 @@ export default function LandingPage() {
           LOGIN
         </Button>
         <HStack w={'100%'} justifyContent={'space-between'}>
-          <Text>Don't have an account yet?</Text>
-          <Button className={'btn'}>SIGN UP</Button>
+          <Text fontSize={'12px'}>Don't have an account yet?</Text>
+          <Button className={'btn'} fontSize={'14px'} w={'120px'}>
+            SIGN UP
+          </Button>
         </HStack>
       </VStack>
     </VStack>

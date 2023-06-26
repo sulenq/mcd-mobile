@@ -37,7 +37,7 @@ export default function Verification() {
         setDone(true);
         setTimeout(() => {
           setLoading(false);
-          navigate('/mcd-mobile');
+          navigate('/deals');
         }, 1500);
       }, 1500);
     }
@@ -98,10 +98,10 @@ export default function Verification() {
         borderRadius={'10px'}
         bg={'white'}
       >
-        <Heading fontSize={'24px'} lineHeight={'24px'}>
+        <Heading className={'tw'} fontSize={'24px'} lineHeight={'24px'}>
           WELCOME TO
         </Heading>
-        <Heading fontSize={'36px'} lineHeight={'36px'}>
+        <Heading className={'tw'} fontSize={'36px'} lineHeight={'36px'}>
           MCDONNALD'S
         </Heading>
         <Text opacity={0.5} mb={'32px'}>
