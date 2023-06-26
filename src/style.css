@@ -19,7 +19,7 @@
 }
 
 #appContainer {
-  max-width: 1024px;
+  max-width: 720px;
   height: 100vh;
   justify-content: center;
   margin: 0 auto;

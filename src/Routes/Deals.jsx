@@ -166,7 +166,7 @@ export default function Deals() {
           })}
         </HStack>
       </Box>
-      <SimpleGrid pt={'10px'} columns={[2, 3, 4, 5]} gap={'16px'} px={'32px'}>
+      <SimpleGrid pt={'10px'} columns={[2, 3, 4]} gap={'16px'} px={'32px'}>
         {dealsItems?.map((d, index) => {
           return (
             <VStack

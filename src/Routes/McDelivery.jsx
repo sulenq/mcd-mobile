@@ -59,20 +59,14 @@ export default function McDelivery() {
             </Text>
             <Icon color={'red'} fontSize={'18px'} as={FmdGoodIcon} />
           </HStack>
-          <HStack
-            alignItems={'flex-start'}
-            w={'240px'}
-            p={'8px'}
-            className={'bs'}
-            borderRadius={'10px'}
-          >
+          <HStack p={'8px'} className={'bs'} borderRadius={'10px'}>
             <Text fontSize={'12px'}>
               Perumaham Villa Durian Banyumanik. Kav 21
             </Text>
             <Icon as={KeyboardArrowDownIcon} />
           </HStack>
         </VStack>
-        <VStack w={'100%'} gap={'4px'} alignItems={'flex-start'} mb={'24px'}>
+        <VStack gap={'4px'} alignItems={'flex-start'} mb={'24px'}>
           <HStack gap={'4px'}>
             <Text className={'tw'} fontWeight={'bold'} fontSize={'18px'}>
               Time
@@ -169,7 +163,6 @@ export default function McDelivery() {
       >
         Menu
       </Text>
-      
     </Box>
   );
 }
