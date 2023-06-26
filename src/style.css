@@ -1,22 +1,61 @@
 * {
   box-sizing: border-box !important;
   font-family: 'Roboto', sans-serif;
-  border: 1px solid gray !important;
+  /* border: 1px solid gray !important; */
 }
 
 :root {
-  --gray-shade-1: #aaaaaa;
+  --gray: #aaaaaa;
+  --yellow-hover: #f1cb5f;
+  --yellow: #ffc836;
+  --yellow-active: #e2b12b;
+  --red-hover: #cd1f34;
+  --red: #bd0017;
+  --red-active: #9d091a;
 }
 
 #appContainer {
   max-width: 720px;
   height: 100vh;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .input {
   padding: 16px;
   border-radius: 10px;
-  border: 1px solid var(--greys-shade-1, #aaa);
-  background: var(--white, #fff);
+  border: 1px solid var(--gray);
+  background: white;
+  box-shadow: none !important;
+}
+.input:focus-visible {
+  border: 2px solid var(--yellow) !important;
+}
+
+.btn {
+  border-radius: 10px !important;
+  padding: 16px !important;
+}
+.yellowBtn {
+  background: var(--yellow) !important;
+  color: black !important;
+}
+.yellowBtn:hover {
+  background: var(--yellow-hover);
+}
+.yellowBtn:active {
+  background: var(--yellow-active);
+}
+.roundBtn {
+  border-radius: 100% !important;
+}
+.redBtn {
+  background: var(--red) !important;
+  color: white !important;
+}
+.redBtn:hover {
+  background: var(--red-hover);
+}
+.redBtn:active {
+  background: var(--red-active);
 }
