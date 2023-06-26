@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box !important;
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid gray !important;
+}
+
+:root {
+  --gray-shade-1: #aaaaaa;
+}
+
+#appContainer {
+  max-width: 720px;
+  height: 100vh;
+  justify-content: center;
+}
+
+.input {
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--greys-shade-1, #aaa);
+  background: var(--white, #fff);
+}
