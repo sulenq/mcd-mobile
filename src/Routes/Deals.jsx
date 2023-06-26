@@ -149,7 +149,7 @@ export default function Deals() {
           HI, <span style={{ color: 'var(--yellow)' }}>PENG</span>
         </Heading>
       </Box>
-      <Box w={'100%'} overflow={'auto'} mb={'24px'}>
+      <Box w={'100%'} overflow={'auto'} pb={'14px'}>
         <HStack w={'max-content'} px={'32px'}>
           {featuredImgSrc?.map((i, index) => {
             return (
@@ -166,7 +166,7 @@ export default function Deals() {
           })}
         </HStack>
       </Box>
-      <SimpleGrid columns={[2, 3, 4, 5]} gap={'16px'} px={'32px'}>
+      <SimpleGrid pt={'10px'} columns={[2, 3, 4, 5]} gap={'16px'} px={'32px'}>
         {dealsItems?.map((d, index) => {
           return (
             <VStack

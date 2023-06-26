@@ -4,6 +4,7 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
 
 import {
   Heading,
@@ -91,7 +92,7 @@ export default function McDelivery() {
           </HStack>
         </VStack>
       </HStack>
-      <Box w={'100%'} overflow={'auto'} mb={'24px'}>
+      <Box w={'100%'} overflow={'auto'} pb={'14px'}>
         <HStack w={'max-content'} px={'32px'}>
           {featuredImgSrc?.map((i, index) => {
             return (
@@ -108,11 +109,67 @@ export default function McDelivery() {
           })}
         </HStack>
       </Box>
-      <Box px={'32px'}>
-        <Text className={'tw'} fontWeight={'bold'} fontSize={'18px'}>
-          Top Items
-        </Text>
+      <Text
+        className={'tw'}
+        px={'32px'}
+        fontWeight={'bold'}
+        fontSize={'18px'}
+        mb={'8px'}
+        pt={'10px'}
+      >
+        Top Items
+      </Text>
+      <Box w={'100%'} overflow={'auto'} pb={'14px'}>
+        <HStack w={'max-content'} px={'32px'}>
+          {featuredImgSrc?.map((i, index) => {
+            return (
+              <Box key={index} borderRadius={'10px'} className={'bs'}>
+                <Image
+                  src={i}
+                  w={'326px'}
+                  h={'245px'}
+                  objectFit={'cover'}
+                  borderRadius={'10px 10px 0 0'}
+                />
+                <Box w={'100%'} p={'8px'}>
+                  <HStack gap={'4px'}>
+                    <Icon fontSize={'16px'} as={SentimentVerySatisfiedIcon} />
+                    <Text
+                      className={'tw'}
+                      fontWeight={'bold'}
+                      fontSize={'14px'}
+                    >
+                      Chicken
+                    </Text>
+                  </HStack>
+                  <Text
+                    className={'tw'}
+                    px={'4px'}
+                    fontWeight={'bold'}
+                    fontSize={'18px'}
+                  >
+                    PaNas 2 With Rice
+                  </Text>
+                  <Text className={'tw'} px={'4px'} fontSize={'14px'}>
+                    From Rp.50.000
+                  </Text>
+                </Box>
+              </Box>
+            );
+          })}
+        </HStack>
       </Box>
+      <Text
+        className={'tw'}
+        px={'32px'}
+        fontWeight={'bold'}
+        fontSize={'18px'}
+        mb={'8px'}
+        pt={'10px'}
+      >
+        Menu
+      </Text>
+      
     </Box>
   );
 }
