@@ -30,6 +30,7 @@ export default function LandingPage() {
         <Input className={'input'} placeholder={'Email Address'} mb={'16px'} />
         <HStack>
           <Checkbox defaultChecked>Remember Me</Checkbox>
+          <Text>Forget Password</Text>
         </HStack>
       </VStack>
     </VStack>
