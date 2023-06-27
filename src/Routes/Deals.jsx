@@ -179,6 +179,7 @@ export default function Deals() {
               position={'relative'}
               overflow={'hidden'}
               boxShadow={'0px 0px 5px var(--gl) '}
+              justifyContent={'space-between'}
             >
               <Box
                 position={'absolute'}
@@ -241,8 +242,8 @@ export default function Deals() {
                   );
                 })}
               </HStack>
-              <VStack gap={null} justifyContent={'space-between'} h={'120px'}>
-                <Text fontSize={'14px'} fontWeight={'bold'}>
+              <VStack gap={null} justifyContent={'space-between'}>
+                <Text fontSize={'14px'} fontWeight={'bold'} mt={'8px'}>
                   {d?.name}
                 </Text>
                 <VStack gap={null}>
