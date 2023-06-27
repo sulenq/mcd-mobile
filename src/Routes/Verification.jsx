@@ -56,7 +56,7 @@ export default function Verification() {
           zIndex={1}
         ></Box>
         <HStack
-          w={'calc(100% - 64px)'}
+          w={'360px'}
           bg={'white'}
           borderRadius={'10px'}
           justifyContent={'space-between'}
@@ -112,12 +112,12 @@ export default function Verification() {
         </Text>
         <HStack w={'100%'} my={'16px'} justifyContent={'center'}>
           <PinInput otp>
-            <PinInputField w={'100%'} className={'input'} />
-            <PinInputField w={'100%'} className={'input'} />
-            <PinInputField w={'100%'} className={'input'} />
-            <PinInputField w={'100%'} className={'input'} />
-            <PinInputField w={'100%'} className={'input'} />
-            <PinInputField w={'100%'} className={'input'} />
+            <PinInputField w={'100%'} className={'input'} p={0} />
+            <PinInputField w={'100%'} className={'input'} p={0} />
+            <PinInputField w={'100%'} className={'input'} p={0} />
+            <PinInputField w={'100%'} className={'input'} p={0} />
+            <PinInputField w={'100%'} className={'input'} p={0} />
+            <PinInputField w={'100%'} className={'input'} p={0} />
           </PinInput>
         </HStack>
         <Text fontSize={'12px'} mb={'32px'}>
