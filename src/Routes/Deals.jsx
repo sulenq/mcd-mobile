@@ -18,7 +18,7 @@ import {
 import { Nav } from '../myComponents';
 
 export default function Deals() {
-  const featuredImgSrc = ['./asset/f1.jpg', './asset/f2.jpg', './asset/f3.jpg'];
+  const featuredImgSrc = ['./asset/f1.JPG', './asset/f2.JPG', './asset/f3.JPG'];
   const dealsItems = [
     {
       name: 'Nikmati 2 Fanta McFloat dengan Harga Murah',
