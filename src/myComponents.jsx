@@ -26,6 +26,7 @@ const Nav = props => {
       {navItems?.map((n, index) => {
         return (
           <Link
+            w={'100px'}
             textDecoration={'none !important'}
             key={index}
             href={n?.link && n?.link}

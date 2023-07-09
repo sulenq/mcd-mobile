@@ -125,7 +125,7 @@ export default function Deals() {
   ];
 
   return (
-    <Box id={'appContainer'} pb={'94px'} position={'relative'}>
+    <Box id={'appContainer'} bgImage={''} pb={'72px'} position={'relative'}>
       <Nav />
       <Box p={'32px'} pb={0}>
         <Box w={'100%'} borderBottom={'2px solid red'}>
@@ -153,11 +153,16 @@ export default function Deals() {
           HI, <span style={{ color: 'var(--yellow)' }}>PENG</span>
         </Heading>
       </Box>
-      <Box w={'100%'} overflow={'auto'} pb={'14px'}>
+      <Box
+        scrollSnapType={'x mandatory'}
+        w={'100%'}
+        overflow={'auto'}
+        pb={'14px'}
+      >
         <HStack w={'max-content'} px={'32px'}>
           {featuredImgSrc?.map((i, index) => {
             return (
-              <Box key={index}>
+              <Box key={index} scrollSnapAlign={'center'}>
                 <Image
                   src={i}
                   w={'326px'}
@@ -170,7 +175,8 @@ export default function Deals() {
           })}
         </HStack>
       </Box>
-      <SimpleGrid pt={'10px'} columns={[2, 3]} gap={'16px'} px={'32px'}>
+
+      <SimpleGrid pt={'10px'} pb={4} columns={[2, 3]} gap={'16px'} px={'32px'}>
         {dealsItems?.map((d, index) => {
           return (
             <VStack
@@ -202,6 +208,7 @@ export default function Deals() {
                 src={'./asset/cardBg.png'}
                 // opacity={0.8}
               />
+
               <Box
                 w={'100%'}
                 h={'16px'}
@@ -210,6 +217,7 @@ export default function Deals() {
                 top={'0'}
                 left={'0'}
               ></Box>
+
               <HStack
                 fontWeight={'bold'}
                 gap={null}
@@ -246,6 +254,7 @@ export default function Deals() {
                   );
                 })}
               </HStack>
+
               <VStack gap={null} justifyContent={'space-between'}>
                 <Text fontSize={'14px'} fontWeight={'bold'} mt={'8px'}>
                   {d?.name}
