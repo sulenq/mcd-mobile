@@ -126,6 +126,15 @@ export default function Deals() {
 
   return (
     <Box id={'appContainer'} bgImage={''} pb={'72px'} position={'relative'}>
+      <Image
+        position={'absolute'}
+        w={'100%'}
+        zIndex={-1}
+        top={'220px'}
+        left={0}
+        transform={'scaleX(-1)'}
+        src="./asset/bgKuning.png"
+      />
       <Nav />
       <Box p={'32px'} pb={0}>
         <Box w={'100%'} borderBottom={'2px solid red'}>
@@ -181,44 +190,36 @@ export default function Deals() {
           return (
             <VStack
               key={index}
-              borderRadius={'10px'}
-              pt={'40px'}
+              borderRadius={'0 0 10px 10px'}
+              bg={'white'}
+              mt={'10px'}
+              pt={'30px'}
               pb={'24px'}
               px={'12px'}
               gap={null}
               position={'relative'}
-              overflow={'hidden'}
               boxShadow={'0px 0px 5px var(--gl) '}
               justifyContent={'space-between'}
             >
-              <Box
+              <Image
+                src="./asset/cardTop.png"
                 position={'absolute'}
-                top={'-5px'}
-                bg={'white'}
-                w={'10px'}
+                top={'-10px'}
+                w={'100%'}
                 h={'10px'}
-                borderRadius={'100%'}
-                zIndex={2}
-              ></Box>
+              />
+
               <Image
                 position={'absolute'}
                 bottom={'0'}
                 left={'0'}
-                zIndex={-1}
+                zIndex={0}
                 src={'./asset/cardBg.png'}
                 // opacity={0.8}
               />
 
-              <Box
-                w={'100%'}
-                h={'16px'}
-                bg={'red'}
-                position={'absolute'}
-                top={'0'}
-                left={'0'}
-              ></Box>
-
               <HStack
+                zIndex={2}
                 fontWeight={'bold'}
                 gap={null}
                 alignSelf={'flex-start'}
@@ -230,7 +231,9 @@ export default function Deals() {
                   {d?.price}
                 </Text>
               </HStack>
+
               <HStack
+                zIndex={2}
                 h={'100px'}
                 alignSelf={'flex-end'}
                 alignItems={'flex-end'}
@@ -255,8 +258,13 @@ export default function Deals() {
                 })}
               </HStack>
 
-              <VStack gap={null} justifyContent={'space-between'}>
-                <Text fontSize={'14px'} fontWeight={'bold'} mt={'8px'}>
+              <VStack zIndex={2} gap={null} justifyContent={'space-between'}>
+                <Text
+                  fontSize={'14px'}
+                  noOfLines={3}
+                  fontWeight={'bold'}
+                  mt={'8px'}
+                >
                   {d?.name}
                 </Text>
                 <VStack gap={null}>

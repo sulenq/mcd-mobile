@@ -29,6 +29,7 @@
   justify-content: center;
   margin: 0 auto;
   overflow: auto;
+  gap: 0 !important;
 }
 
 .input {
@@ -88,4 +89,10 @@
 }
 .bs {
   box-shadow: 0 0 5px var(--gl);
+}
+
+.modalProps {
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
 }

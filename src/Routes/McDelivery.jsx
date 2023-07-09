@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 import {
   Heading,
@@ -19,9 +22,432 @@ import {
   TabList,
   TabPanels,
   TabPanel,
+  Modal,
+  ModalBody,
+  ModalContent,
+  useDisclosure,
+  Badge,
+  Button,
 } from '@chakra-ui/react';
 
 import { Nav } from '../myComponents';
+import { useNavigate } from 'react-router-dom';
+
+const MenuItem = ({ mm, m, mmIndex }) => {
+  const navigate = useNavigate();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [kustomisasi, setKustomisasi] = useState({
+    ayam: '',
+    rice: '',
+    drink: '',
+  });
+  const cAyam = [
+    { img: 'ayam/1.png', name: 'Reguler Chicken' },
+    { img: 'ayam/2.png', name: 'Large Chicken' },
+  ];
+  const cRice = [
+    { img: 'rice/nasi.png', name: 'Medium Rice' },
+    { img: 'rice/nasi.png', name: 'Large Rice', additional: '+Rp.5.000' },
+  ];
+  const cDrink = [
+    { img: 'drink/1.png', name: 'Fruit Tea Lemon', additional: '+Rp.0' },
+    { img: 'drink/2.png', name: 'Coca-Cola® Large', additional: '+Rp.0' },
+    { img: 'drink/3.png', name: 'Fanta® Large', additional: '+Rp.0' },
+  ];
+
+  return (
+    <>
+      <HStack
+        cursor={'pointer'}
+        onClick={onOpen}
+        justifyContent={'space-between'}
+        py={4}
+        borderBottom={mmIndex !== m.menus?.length - 1 && '1px solid var(--gl)'}
+      >
+        <Box>
+          <HStack>
+            {mm?.type?.map((t, tIndex) => {
+              return (
+                <HStack key={tIndex} gap={1}>
+                  <Image
+                    w={t?.icon === 'spicy.png' ? '20px' : '16px'}
+                    src={'./asset/icon/' + t?.icon}
+                  />
+                  <Text
+                    className="tw"
+                    fontSize={'14px'}
+                    fontWeight={'bold'}
+                    color={t?.color}
+                  >
+                    {t?.name}
+                  </Text>
+                </HStack>
+              );
+            })}
+          </HStack>
+
+          <Text className="tw" fontWeight={700} fontSize={'18px'} mb={4}>
+            {mm?.name}
+          </Text>
+
+          <Text fontSize={'14px'}>{mm?.price}</Text>
+        </Box>
+
+        <Image w={'100px'} src={'./asset/menu/' + mm?.img} />
+      </HStack>
+
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        size={'full'}
+        scrollBehavior="inside"
+        motionPreset="slideInRight"
+      >
+        <ModalContent>
+          <ModalBody className="modalProps" px={0}>
+            <Box p={4}>
+              <IconButton
+                onClick={onClose}
+                color={'black'}
+                icon={<Icon as={ArrowBackIcon} />}
+                borderRadius={'100%'}
+                colorScheme="pa"
+              />
+            </Box>
+            <Image px={4} w={'100%'} src={'./asset/menu/' + mm?.img} />
+
+            <HStack px={8} justifyContent={'space-between'} mb={4}>
+              <Text
+                className="tw"
+                lineHeight={1.1}
+                fontWeight={700}
+                fontSize={'36px'}
+                w={'50%'}
+                noOfLines={2}
+              >
+                {mm?.name}
+              </Text>
+
+              <VStack alignItems={'flex-end'} gap={0}>
+                <HStack>
+                  {mm?.type?.map((t, tIndex) => {
+                    return (
+                      <HStack key={tIndex} gap={1}>
+                        <Image
+                          w={t?.icon === 'spicy.png' ? '20px' : '16px'}
+                          src={'./asset/icon/' + t?.icon}
+                        />
+                        <Text
+                          className="tw"
+                          fontSize={'14px'}
+                          fontWeight={'bold'}
+                          color={t?.color}
+                        >
+                          {t?.name}
+                        </Text>
+                      </HStack>
+                    );
+                  })}
+                </HStack>
+
+                <Text fontSize={'18px'} fontWeight={700}>
+                  {mm?.price}
+                </Text>
+              </VStack>
+            </HStack>
+
+            <Text
+              px={8}
+              fontSize={'12px'}
+              pb={4}
+              mb={4}
+              borderBottom={'1px solid var(--gl)'}
+            >
+              Ayam Goreng khas McDonald's dengan nasi hangat dan tambahan
+              scrambled egg serta minuman FruitTea lemon yang menyegarkan.
+              Tersedia dalam pilihan Ayam Krispy atau Spicy
+            </Text>
+
+            {/* CHICKEN */}
+            <HStack
+              px={8}
+              justifyContent={'space-between'}
+              alignItems={'flex-start'}
+              mb={2}
+            >
+              <Box>
+                <Text
+                  className="tw"
+                  lineHeight={1}
+                  fontSize={'14px'}
+                  fontWeight={700}
+                >
+                  Chicken
+                </Text>
+                <Text color={'pa.500'} fontSize={'14px'} fontWeight={700}>
+                  SELECT ONE
+                </Text>
+              </Box>
+
+              <Badge colorScheme="blue" borderRadius={8} px={2}>
+                1 REQUIRED
+              </Badge>
+            </HStack>
+
+            <HStack px={8} alignItems={'flex-start'} gap={4} mb={4}>
+              {cAyam?.map((c, index) => {
+                return (
+                  <VStack
+                    key={index}
+                    onClick={() => {
+                      setKustomisasi(ps => ({ ...ps, ayam: c?.name }));
+                    }}
+                    className="bs"
+                    borderRadius={10}
+                    w={'132px'}
+                    h={'200px'}
+                    overflow={'hidden'}
+                    bg={kustomisasi?.ayam === c?.name && 'pa.500'}
+                  >
+                    <Box
+                      boxShadow={
+                        kustomisasi?.ayam === c?.name && '0 0 5px var(--gray)'
+                      }
+                      p={'10px'}
+                      w={'100%'}
+                      h={'124px'}
+                      borderRadius={10}
+                      bg={'white'}
+                      flexShrink={0}
+                    >
+                      <Image
+                        h={'94px'}
+                        mx={'auto'}
+                        src={'./asset/menu/kustomisasi/' + c?.img}
+                      />
+                    </Box>
+
+                    <Box p={'10px'} w={'100%'} h={'100%'}>
+                      <Text fontSize={'14px'} fontWeight={600}>
+                        {c?.name}
+                      </Text>
+                    </Box>
+                  </VStack>
+                );
+              })}
+            </HStack>
+
+            {/* RICE */}
+            <HStack
+              px={8}
+              opacity={!kustomisasi?.ayam && 0.3}
+              justifyContent={'space-between'}
+              alignItems={'flex-start'}
+              mb={2}
+            >
+              <Box>
+                <Text
+                  className="tw"
+                  lineHeight={1}
+                  fontSize={'14px'}
+                  fontWeight={700}
+                >
+                  Rice
+                </Text>
+                <Text color={'pa.500'} fontSize={'14px'} fontWeight={700}>
+                  SELECT ONE
+                </Text>
+              </Box>
+
+              <Badge colorScheme="blue" borderRadius={8} px={2}>
+                1 REQUIRED
+              </Badge>
+            </HStack>
+
+            <HStack
+              px={8}
+              opacity={!kustomisasi?.ayam && 0.3}
+              pointerEvents={!kustomisasi?.ayam && 'none'}
+              alignItems={'flex-start'}
+              gap={4}
+              mb={4}
+            >
+              {cRice?.map((c, index) => {
+                return (
+                  <VStack
+                    key={index}
+                    onClick={() => {
+                      setKustomisasi(ps => ({ ...ps, rice: c?.name }));
+                    }}
+                    className="bs"
+                    borderRadius={10}
+                    w={'132px'}
+                    h={'200px'}
+                    overflow={'hidden'}
+                    bg={kustomisasi?.rice === c?.name && 'pa.500'}
+                  >
+                    <Box
+                      boxShadow={
+                        kustomisasi?.rice === c?.name && '0 0 5px var(--gray)'
+                      }
+                      p={'10px'}
+                      w={'100%'}
+                      h={'124px'}
+                      borderRadius={10}
+                      bg={'white'}
+                      flexShrink={0}
+                    >
+                      <Image
+                        h={'94px'}
+                        mx={'auto'}
+                        src={'./asset/menu/kustomisasi/' + c?.img}
+                      />
+                    </Box>
+
+                    <Box p={'10px'} w={'100%'} h={'100%'}>
+                      <Text fontSize={'14px'} fontWeight={600}>
+                        {c?.name}
+                      </Text>
+                      <Text fontSize={'14px'} mt={2} fontWeight={600}>
+                        {c?.additional}
+                      </Text>
+                    </Box>
+                  </VStack>
+                );
+              })}
+            </HStack>
+
+            {/* DRINK */}
+            <HStack
+              px={8}
+              opacity={!kustomisasi?.rice && 0.3}
+              justifyContent={'space-between'}
+              alignItems={'flex-start'}
+              mb={2}
+            >
+              <Box>
+                <Text
+                  className="tw"
+                  lineHeight={1}
+                  fontSize={'14px'}
+                  fontWeight={700}
+                >
+                  Drink
+                </Text>
+                <Text color={'pa.500'} fontSize={'14px'} fontWeight={700}>
+                  SELECT ONE
+                </Text>
+              </Box>
+
+              <Badge colorScheme="blue" borderRadius={8} px={2}>
+                1 REQUIRED
+              </Badge>
+            </HStack>
+
+            <Box px={8} overflow={'auto'}>
+              <HStack
+                opacity={!kustomisasi?.rice && 0.3}
+                pointerEvents={!kustomisasi?.rice && 'none'}
+                alignItems={'flex-start'}
+                gap={4}
+                pb={4}
+                mb={4}
+                w={'max-content'}
+              >
+                {cDrink?.map((c, index) => {
+                  return (
+                    <VStack
+                      key={index}
+                      onClick={() => {
+                        setKustomisasi(ps => ({ ...ps, drink: c?.name }));
+                      }}
+                      className="bs"
+                      borderRadius={10}
+                      w={'132px'}
+                      h={'224px'}
+                      overflow={'hidden'}
+                      bg={kustomisasi?.drink === c?.name && 'pa.500'}
+                    >
+                      <Box
+                        boxShadow={
+                          kustomisasi?.drink === c?.name &&
+                          '0 0 5px var(--gray)'
+                        }
+                        p={'10px'}
+                        w={'100%'}
+                        h={'114px'}
+                        borderRadius={10}
+                        bg={'white'}
+                        flexShrink={0}
+                      >
+                        <Image
+                          h={'84px'}
+                          mx={'auto'}
+                          src={'./asset/menu/kustomisasi/' + c?.img}
+                        />
+                      </Box>
+
+                      <VStack
+                        justifyContent={'space-between'}
+                        p={'10px'}
+                        w={'100%'}
+                        h={'100%'}
+                      >
+                        <Text noOfLines={2} fontSize={'14px'} fontWeight={600}>
+                          {c?.name}
+                        </Text>
+                        <Text fontSize={'14px'} mt={2} fontWeight={600}>
+                          {c?.additional}
+                        </Text>
+                      </VStack>
+                    </VStack>
+                  );
+                })}
+              </HStack>
+            </Box>
+
+            {/* FOOTER */}
+            <HStack
+              px={8}
+              py={4}
+              opacity={!kustomisasi?.drink && 0.3}
+              pointerEvents={!kustomisasi?.drink && 'none'}
+            >
+              <HStack mr={4}>
+                <IconButton
+                  size={'xs'}
+                  borderRadius={'100%'}
+                  colorScheme="pr"
+                  variant={'outline'}
+                  border={'2px'}
+                  icon={<Icon fontSize={'16px'} as={RemoveIcon} />}
+                />
+                <Text>1</Text>
+                <IconButton
+                  size={'xs'}
+                  borderRadius={'100%'}
+                  colorScheme="pr"
+                  icon={<Icon fontSize={'16px'} as={AddIcon} />}
+                />
+              </HStack>
+
+              <Button
+                onClick={() => {
+                  navigate('/checkout');
+                }}
+                colorScheme="pa"
+                color={'black'}
+                w={'100%'}
+              >
+                {`ADD TO CART Rp.${kustomisasi?.drink ? '51.000' : '0'}`}
+              </Button>
+            </HStack>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+};
 
 export default function McDelivery() {
   const featuredImgSrc = [
@@ -145,7 +571,7 @@ export default function McDelivery() {
             { icon: 'chicken.png', name: 'EGG', color: '#f19839' },
           ],
           name: 'PaMer 7 Ayam McD Gulai',
-          img: 'mains/9.png',
+          img: 'mains/10.png',
           price: 'Mulai Rp.190.000',
         },
         {
@@ -154,13 +580,13 @@ export default function McDelivery() {
             { icon: 'chicken.png', name: 'EGG', color: '#f19839' },
           ],
           name: 'Double McSpicy®',
-          img: 'mains/9.png',
+          img: 'mains/11.png',
           price: 'Mulai Rp.39.500',
         },
         {
           type: [{ icon: 'beef.png', name: 'BEEF', color: '#997752' }],
           name: 'Big Mac®',
-          img: 'mains/9.png',
+          img: 'mains/12.png',
           price: 'Mulai Rp.41.000',
         },
       ],
@@ -173,14 +599,50 @@ export default function McDelivery() {
         {
           type: [{ icon: 'chicken.png', name: 'EGG', color: '#f19839' }],
           name: 'Egg and Cheese Muffin',
-          img: '1.png',
+          img: 'mains/1.png',
           price: 'Mulai Rp.19.780',
         },
         {
           type: [{ icon: 'chicken.png', name: 'CHICKEN', color: '#f19839' }],
           name: 'Chicken Muffin',
-          img: '2.png',
+          img: 'mains/2.png',
           price: 'Mulai Rp.15.800',
+        },
+        {
+          type: [{ icon: 'beef.png', name: 'BEEF', color: '#997752' }],
+          name: 'Sausage Muffin',
+          img: 'mains/3.png',
+          price: 'Mulai Rp.17.950',
+        },
+        {
+          type: [{ icon: 'beef.png', name: 'BEEF', color: '#997752' }],
+          name: 'Sausage Wrap',
+          img: 'mains/4.png',
+          price: 'Mulai Rp.15.550',
+        },
+        {
+          type: [
+            { icon: 'chicken.png', name: 'CHICKEN', color: '#f19839' },
+            { icon: 'chicken.png', name: 'EGG', color: '#f19839' },
+          ],
+          name: 'Big Breakfast',
+          img: 'mains/5.png',
+          price: 'Mulai Rp.31.364',
+        },
+        {
+          type: [
+            { icon: 'chicken.png', name: 'CHICKEN', color: '#f19839' },
+            { icon: 'chicken.png', name: 'EGG', color: '#f19839' },
+          ],
+          name: 'Nasi Uduk McD',
+          img: 'mains/6.png',
+          price: 'Mulai Rp.21.500',
+        },
+        {
+          type: [{ icon: 'chicken.png', name: 'CHICKEN', color: '#f19839' }],
+          name: 'Bubur Ayam McD',
+          img: 'mains/7.png',
+          price: 'Mulai Rp.21.500',
         },
       ],
     },
@@ -191,6 +653,15 @@ export default function McDelivery() {
 
   return (
     <Box id={'appContainer'} pb={'72px'} position={'relative'}>
+      <Image
+        position={'absolute'}
+        w={'100%'}
+        zIndex={-1}
+        top={'220px'}
+        left={0}
+        src="./asset/bgKuning.png"
+      />
+
       <Nav />
 
       <Box p={'32px'} pb={0}>
@@ -229,7 +700,8 @@ export default function McDelivery() {
             </Text>
             <Icon color={'red'} fontSize={'18px'} as={FmdGoodIcon} />
           </HStack>
-          <HStack p={'8px'} className={'bs'} borderRadius={'10px'}>
+
+          <HStack bg={'white'} p={'8px'} className={'bs'} borderRadius={'10px'}>
             <Text fontSize={'12px'}>
               Perumaham Villa Durian Banyumanik. Kav 21
             </Text>
@@ -435,53 +907,7 @@ export default function McDelivery() {
                 <Box pt={2}>
                   {m?.menus?.map((mm, mmIndex) => {
                     return (
-                      <HStack
-                        key={mmIndex}
-                        justifyContent={'space-between'}
-                        py={4}
-                        borderBottom={
-                          mmIndex !== m.menus?.length - 1 &&
-                          '1px solid var(--gl)'
-                        }
-                      >
-                        <Box>
-                          <HStack>
-                            {mm?.type?.map((t, tIndex) => {
-                              return (
-                                <HStack key={tIndex} gap={1}>
-                                  <Image
-                                    w={
-                                      t?.icon === 'spicy.png' ? '20px' : '16px'
-                                    }
-                                    src={'./asset/icon/' + t?.icon}
-                                  />
-                                  <Text
-                                    className="tw"
-                                    fontSize={'14px'}
-                                    fontWeight={'bold'}
-                                    color={t?.color}
-                                  >
-                                    {t?.name}
-                                  </Text>
-                                </HStack>
-                              );
-                            })}
-                          </HStack>
-
-                          <Text
-                            className="tw"
-                            fontWeight={700}
-                            fontSize={'18px'}
-                            mb={4}
-                          >
-                            {mm?.name}
-                          </Text>
-
-                          <Text fontSize={'14px'}>{mm?.price}</Text>
-                        </Box>
-
-                        <Image w={'100px'} src={'./asset/menu/' + mm?.img} />
-                      </HStack>
+                      <MenuItem key={mmIndex} mm={mm} m={m} mmIndex={mmIndex} />
                     );
                   })}
                 </Box>
