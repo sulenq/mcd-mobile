@@ -14,6 +14,7 @@ import Verification from './Routes/Verification';
 import Deals from './Routes/Deals.jsx';
 import McDelivery from './Routes/McDelivery.jsx';
 import Checkout from './Routes/Checkout';
+import Orderend from './Routes/Orderend';
 
 const NotFound = () => {
   return (
@@ -51,6 +52,7 @@ function App() {
           <Route path={'/deals'} element={<Deals />} />
           <Route path={'/mcdelivery'} element={<McDelivery />} />
           <Route path={'/checkout'} element={<Checkout />}></Route>
+          <Route path={'/orderend'} element={<Orderend />} />
           <Route path={'*'} element={<NotFound />} />
         </Routes>
       </ChakraProvider>

@@ -172,7 +172,7 @@ export default function Checkout() {
       <HStack w={'100%'} px={8}>
         <HStack
           w={'100%'}
-          pb={8}
+          pb={6}
           fontSize={'12px'}
           opacity={0.5}
           borderBottom={'1px solid var(--gl)'}
@@ -363,6 +363,7 @@ export default function Checkout() {
                         fontStyle={'italic'}
                         fontWeight={700}
                         color={'white'}
+                        pr={1}
                       >
                         Cash
                       </Text>
