@@ -190,6 +190,7 @@ export default function Deals() {
           return (
             <VStack
               key={index}
+              // overflow={'hidden'}
               borderRadius={'0 0 10px 10px'}
               bg={'white'}
               mt={'10px'}
@@ -200,6 +201,10 @@ export default function Deals() {
               position={'relative'}
               boxShadow={'0px 0px 5px var(--gl) '}
               justifyContent={'space-between'}
+              bgImage={'./asset/cardBg.png'}
+              bgSize={'contain'}
+              bgPosition={'bottom'}
+              bgRepeat={'no-repeat'}
             >
               <Image
                 src="./asset/cardTop.png"
@@ -209,14 +214,14 @@ export default function Deals() {
                 h={'10px'}
               />
 
-              <Image
+              {/* <Image
                 position={'absolute'}
                 bottom={'0'}
                 left={'0'}
                 zIndex={0}
                 src={'./asset/cardBg.png'}
                 // opacity={0.8}
-              />
+              /> */}
 
               <HStack
                 zIndex={2}

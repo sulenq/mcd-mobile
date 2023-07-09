@@ -119,7 +119,7 @@ const MenuItem = ({ mm, m, mmIndex }) => {
             <HStack px={8} justifyContent={'space-between'} mb={4}>
               <Text
                 className="tw"
-                lineHeight={1.1}
+                lineHeight={1.3}
                 fontWeight={700}
                 fontSize={'36px'}
                 w={'50%'}
@@ -198,6 +198,7 @@ const MenuItem = ({ mm, m, mmIndex }) => {
               {cAyam?.map((c, index) => {
                 return (
                   <VStack
+                    cursor={'pointer'}
                     key={index}
                     onClick={() => {
                       setKustomisasi(ps => ({ ...ps, ayam: c?.name }));
@@ -275,6 +276,7 @@ const MenuItem = ({ mm, m, mmIndex }) => {
               {cRice?.map((c, index) => {
                 return (
                   <VStack
+                    cursor={'pointer'}
                     key={index}
                     onClick={() => {
                       setKustomisasi(ps => ({ ...ps, rice: c?.name }));
@@ -357,6 +359,7 @@ const MenuItem = ({ mm, m, mmIndex }) => {
                 {cDrink?.map((c, index) => {
                   return (
                     <VStack
+                      cursor={'pointer'}
                       key={index}
                       onClick={() => {
                         setKustomisasi(ps => ({ ...ps, drink: c?.name }));
@@ -777,6 +780,7 @@ export default function McDelivery() {
                 scrollSnapAlign={'center'}
                 borderRadius={'10px'}
                 className={'bs'}
+                bg={'white'}
               >
                 <Image
                   src={'./asset/topItems/' + i?.img}
