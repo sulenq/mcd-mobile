@@ -338,7 +338,7 @@ export default function Checkout() {
           Payment Method
         </Text>
 
-        <Box scrollSnapType={'x mandatory'} w={'100%'} overflow={'auto'}>
+        <Box scrollSnapType={'x mandatory'} w={'100%'} overflow={'auto'} mb={3}>
           <HStack px={'32px'} w={'max-content'} pt={4} pb={1}>
             {pm?.map((p, index) => {
               return (

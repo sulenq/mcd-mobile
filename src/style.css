@@ -28,8 +28,10 @@
   height: 100vh;
   justify-content: center;
   margin: 0 auto;
-  overflow: auto;
+  overflow: auto !important;
   gap: 0 !important;
+  /* background-image: url('../public/asset/bg.png'); */
+  background-size: contain;
 }
 
 .input {

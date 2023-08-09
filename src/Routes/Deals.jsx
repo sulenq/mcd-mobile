@@ -135,7 +135,19 @@ export default function Deals() {
         transform={'scaleX(-1)'}
         src="./asset/bgKuning.png"
       />
+
+      <Image
+        position={'fixed'}
+        w={'100%'}
+        // h={'100%'}
+        zIndex={-2}
+        top={0}
+        left={0}
+        src={'./asset/bg1.png'}
+      />
+
       <Nav />
+
       <Box p={'32px'} pb={0}>
         <Box w={'100%'} borderBottom={'2px solid red'}>
           <HStack w={'100%'} justifyContent={'space-between'}>
@@ -146,6 +158,7 @@ export default function Deals() {
               icon={<NotificationsNoneOutlinedIcon />}
             />
           </HStack>
+
           <Text
             mt={'24px'}
             fontSize={'14px'}
@@ -157,11 +170,13 @@ export default function Deals() {
           </Text>
         </Box>
       </Box>
+
       <Box p={'20px 32px'}>
         <Heading className={'tw'} fontSize={'36px'}>
           HI, <span style={{ color: 'var(--yellow)' }}>PENG</span>
         </Heading>
       </Box>
+
       <Box
         scrollSnapType={'x mandatory'}
         w={'100%'}
@@ -188,33 +203,26 @@ export default function Deals() {
       <SimpleGrid pt={'10px'} pb={4} columns={[2, 3]} gap={'16px'} px={'32px'}>
         {dealsItems?.map((d, index) => {
           return (
-            <VStack
-              key={index}
-              // overflow={'hidden'}
-              borderRadius={'0 0 10px 10px'}
-              bg={'white'}
-              mt={'10px'}
-              pt={'30px'}
-              pb={'24px'}
-              px={'12px'}
-              gap={null}
-              position={'relative'}
-              boxShadow={'0px 0px 5px var(--gl) '}
-              justifyContent={'space-between'}
-              bgImage={'./asset/cardBg.png'}
-              bgSize={'contain'}
-              bgPosition={'bottom'}
-              bgRepeat={'no-repeat'}
-            >
-              <Image
-                src="./asset/cardTop.png"
-                position={'absolute'}
-                top={'-10px'}
-                w={'100%'}
-                h={'10px'}
-              />
-
-              {/* <Image
+            <VStack key={index} gap={0}>
+              <Image src="./asset/cardTop.png" w={'100%'} h={'10px'} />
+              <VStack
+                h={'100%'}
+                overflow={'hidden'}
+                borderRadius={'0 0 10px 10px'}
+                bg={'white'}
+                pt={'30px'}
+                pb={'24px'}
+                px={'12px'}
+                gap={null}
+                position={'relative'}
+                boxShadow={'0px 0px 5px var(--gl) '}
+                justifyContent={'space-between'}
+                bgImage={'./asset/cardBg.png'}
+                bgSize={'contain'}
+                bgPosition={'bottom'}
+                bgRepeat={'no-repeat'}
+              >
+                {/* <Image
                 position={'absolute'}
                 bottom={'0'}
                 left={'0'}
@@ -223,74 +231,75 @@ export default function Deals() {
                 // opacity={0.8}
               /> */}
 
-              <HStack
-                zIndex={2}
-                fontWeight={'bold'}
-                gap={null}
-                alignSelf={'flex-start'}
-                alignItems={'flex-end'}
-                mb={'8px'}
-              >
-                <Text fontSize={'10px'}>Rp.</Text>
-                <Text lineHeight={'20px'} fontSize={'20px'}>
-                  {d?.price}
-                </Text>
-              </HStack>
-
-              <HStack
-                zIndex={2}
-                h={'100px'}
-                alignSelf={'flex-end'}
-                alignItems={'flex-end'}
-                gap={null}
-              >
-                {d?.imgSrc?.map((i, iIndex) => {
-                  return (
-                    <Image
-                      key={iIndex}
-                      w={
-                        i?.type === 'sm'
-                          ? '46px'
-                          : i?.type === 'md'
-                          ? '64px'
-                          : i?.type === 'xs'
-                          ? '32px'
-                          : '80px'
-                      }
-                      src={i?.src}
-                    />
-                  );
-                })}
-              </HStack>
-
-              <VStack zIndex={2} gap={null} justifyContent={'space-between'}>
-                <Text
-                  fontSize={'14px'}
-                  noOfLines={3}
+                <HStack
+                  zIndex={2}
                   fontWeight={'bold'}
-                  mt={'8px'}
+                  gap={null}
+                  alignSelf={'flex-start'}
+                  alignItems={'flex-end'}
+                  mb={'8px'}
                 >
-                  {d?.name}
-                </Text>
-                <VStack gap={null}>
-                  <Text
-                    opacity={0.5}
-                    fontSize={'12px'}
-                    py={'8px'}
-                    w={'100%'}
-                    borderBottom={'1px solid white'}
-                    alignSelf={'flex-start'}
-                  >
-                    Expires 20/06/2023
+                  <Text fontSize={'10px'}>Rp.</Text>
+                  <Text lineHeight={'20px'} fontSize={'20px'}>
+                    {d?.price}
                   </Text>
-                  <HStack gap={'4px'} mt={'8px'}>
-                    <Icon
-                      fontSize={'16px !important'}
-                      mt={'-1px'}
-                      as={AccessTimeIcon}
-                    />
-                    <Text fontSize={'12px'}>11:00 am - 5:00 pm</Text>
-                  </HStack>
+                </HStack>
+
+                <HStack
+                  zIndex={2}
+                  h={'100px'}
+                  alignSelf={'flex-end'}
+                  alignItems={'flex-end'}
+                  gap={null}
+                >
+                  {d?.imgSrc?.map((i, iIndex) => {
+                    return (
+                      <Image
+                        key={iIndex}
+                        w={
+                          i?.type === 'sm'
+                            ? '46px'
+                            : i?.type === 'md'
+                            ? '64px'
+                            : i?.type === 'xs'
+                            ? '32px'
+                            : '80px'
+                        }
+                        src={i?.src}
+                      />
+                    );
+                  })}
+                </HStack>
+
+                <VStack zIndex={2} gap={null} justifyContent={'space-between'}>
+                  <Text
+                    fontSize={'14px'}
+                    noOfLines={3}
+                    fontWeight={'bold'}
+                    mt={'8px'}
+                  >
+                    {d?.name}
+                  </Text>
+                  <VStack gap={null}>
+                    <Text
+                      opacity={0.5}
+                      fontSize={'12px'}
+                      py={'8px'}
+                      w={'100%'}
+                      borderBottom={'1px solid white'}
+                      alignSelf={'flex-start'}
+                    >
+                      Expires 20/06/2023
+                    </Text>
+                    <HStack gap={'4px'} mt={'8px'}>
+                      <Icon
+                        fontSize={'16px !important'}
+                        mt={'-1px'}
+                        as={AccessTimeIcon}
+                      />
+                      <Text fontSize={'12px'}>11:00 am - 5:00 pm</Text>
+                    </HStack>
+                  </VStack>
                 </VStack>
               </VStack>
             </VStack>

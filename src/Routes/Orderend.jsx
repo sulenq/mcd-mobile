@@ -78,7 +78,7 @@ export default function Orderend() {
       </Box>
 
       <Box px={8} mb={8}>
-        <Text fontSize={'12px'}>Order Reference No.</Text>
+        <Text fontSize={'12px'}>Total</Text>
         <Text fontSize={'24px'} lineHeight={1} fontWeight={700}>
           RP. 30.000,00
         </Text>

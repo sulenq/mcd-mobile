@@ -194,7 +194,7 @@ const MenuItem = ({ mm, m, mmIndex }) => {
               </Badge>
             </HStack>
 
-            <HStack px={8} alignItems={'flex-start'} gap={4} mb={4}>
+            <HStack pt={1} px={8} alignItems={'flex-start'} gap={4} mb={4}>
               {cAyam?.map((c, index) => {
                 return (
                   <VStack
@@ -272,6 +272,7 @@ const MenuItem = ({ mm, m, mmIndex }) => {
               alignItems={'flex-start'}
               gap={4}
               mb={4}
+              pt={1}
             >
               {cRice?.map((c, index) => {
                 return (
@@ -353,6 +354,7 @@ const MenuItem = ({ mm, m, mmIndex }) => {
                 alignItems={'flex-start'}
                 gap={4}
                 pb={4}
+                pt={1}
                 mb={4}
                 w={'max-content'}
               >
@@ -602,25 +604,25 @@ export default function McDelivery() {
         {
           type: [{ icon: 'chicken.png', name: 'EGG', color: '#f19839' }],
           name: 'Egg and Cheese Muffin',
-          img: 'mains/1.png',
+          img: 'breakfast/1.png',
           price: 'Mulai Rp.19.780',
         },
         {
           type: [{ icon: 'chicken.png', name: 'CHICKEN', color: '#f19839' }],
           name: 'Chicken Muffin',
-          img: 'mains/2.png',
+          img: 'breakfast/2.png',
           price: 'Mulai Rp.15.800',
         },
         {
           type: [{ icon: 'beef.png', name: 'BEEF', color: '#997752' }],
           name: 'Sausage Muffin',
-          img: 'mains/3.png',
+          img: 'breakfast/3.png',
           price: 'Mulai Rp.17.950',
         },
         {
           type: [{ icon: 'beef.png', name: 'BEEF', color: '#997752' }],
           name: 'Sausage Wrap',
-          img: 'mains/4.png',
+          img: 'breakfast/4.png',
           price: 'Mulai Rp.15.550',
         },
         {
@@ -629,7 +631,7 @@ export default function McDelivery() {
             { icon: 'chicken.png', name: 'EGG', color: '#f19839' },
           ],
           name: 'Big Breakfast',
-          img: 'mains/5.png',
+          img: 'breakfast/5.png',
           price: 'Mulai Rp.31.364',
         },
         {
@@ -638,13 +640,13 @@ export default function McDelivery() {
             { icon: 'chicken.png', name: 'EGG', color: '#f19839' },
           ],
           name: 'Nasi Uduk McD',
-          img: 'mains/6.png',
+          img: 'breakfast/6.png',
           price: 'Mulai Rp.21.500',
         },
         {
           type: [{ icon: 'chicken.png', name: 'CHICKEN', color: '#f19839' }],
           name: 'Bubur Ayam McD',
-          img: 'mains/7.png',
+          img: 'breakfast/7.png',
           price: 'Mulai Rp.21.500',
         },
       ],
@@ -663,6 +665,16 @@ export default function McDelivery() {
         top={'220px'}
         left={0}
         src="./asset/bgKuning.png"
+      />
+
+      <Image
+        position={'fixed'}
+        w={'100%'}
+        // h={'100%'}
+        zIndex={-2}
+        top={0}
+        left={0}
+        src={'./asset/bg1.png'}
       />
 
       <Nav />
@@ -766,6 +778,7 @@ export default function McDelivery() {
         Top Items
       </Text>
 
+      {/* TOP ITEMS */}
       <Box
         scrollSnapType={'x mandatory'}
         w={'100%'}
@@ -809,13 +822,14 @@ export default function McDelivery() {
                       );
                     })}
                   </HStack>
+
                   <Text
                     className={'tw'}
                     px={'4px'}
                     fontWeight={'bold'}
                     fontSize={'18px'}
                   >
-                    PaNas 2 With Rice
+                    {i?.name}
                   </Text>
                   <Text className={'tw'} px={'4px'} fontSize={'14px'}>
                     From Rp.50.000
@@ -836,6 +850,7 @@ export default function McDelivery() {
       >
         Menu
       </Text>
+
       <Text px={8} mb={'8px'}>
         Something for everyone
       </Text>
@@ -857,6 +872,7 @@ export default function McDelivery() {
                 p={0}
                 flexShrink={0}
                 h={'max-content'}
+                borderRadius={'16px 16px 0 0'}
               >
                 <VStack h={'178px'} gap={0}>
                   <Image
